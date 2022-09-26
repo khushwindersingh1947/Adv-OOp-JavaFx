@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.f22comp1011s1w1.CreateSongController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f22comp1011s1w1.CreateSongController">
+   <children>
+      <VBox alignment="CENTER" layoutX="125.0" layoutY="51.0" prefHeight="600.0" prefWidth="800.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane maxWidth="500.0" prefHeight="350.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Artist" />
+                  <Label text="Song Name" GridPane.rowIndex="1" />
+                  <Label text="Length " GridPane.rowIndex="2" />
+                  <Label text="Release Year" GridPane.rowIndex="3" />
+                  <Label text="Genre" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="ArtistComboBox" prefWidth="350.0" promptText="Select Artist" GridPane.columnIndex="1" />
+                  <TextField fx:id="songTextField" promptText="Enter Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="lengthTextField" prefHeight="57.0" prefWidth="330.0" promptText="In Seconds" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Spinner fx:id="releaseSpinner" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="genreComboBox" prefWidth="350.0" promptText="Select Genre" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <Button mnemonicParsing="false" onAction="#createSong" text="Submit" />
+            <Label fx:id="resultLabel" text="Label" />
+         </children>
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+      </VBox>
+   </children>
 </AnchorPane>
