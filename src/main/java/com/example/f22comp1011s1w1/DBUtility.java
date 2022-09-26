@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class DBUtility {
     private static String user = "root";
     private static String password = "MySQL@25";
+
+    //jdbc:mysql - this piece tells java which sql driver to load
     private static String connectUrl = "jdbc:mysql://127.0.0.1:3306/F22";
 
     /**
@@ -28,11 +30,12 @@ public class DBUtility {
                  ResultSet resultSet = statement.executeQuery(sql);
                 ) {
              while (resultSet.next()) {
+                 int artistID = resultSet.getInt("artistId");
                  String firstName = resultSet.getString("firstName");
                  String lastName = resultSet.getString("lastName");
-
                  LocalDate birthday = resultSet.getDate("birthday").toLocalDate();
-                 Artist newArtist = new Artist(firstName, lastName, birthday);
+
+                 Artist newArtist = new Artist(artistID,firstName, lastName, birthday);
                  artists.add(newArtist);
              }
 
