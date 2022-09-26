@@ -85,7 +85,7 @@ public class Song {
         Collections.sort(list);
         return list;
     }
-//    public String toString(){
-//
-//    }
+    public String toString(){
+        return String.format("%s - %s ", artist,getName());
+    }
 }
