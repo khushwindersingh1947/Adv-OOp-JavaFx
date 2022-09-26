@@ -5,6 +5,11 @@ import java.time.Period;
 
 public class Artist {
     private int artistID;
+
+    public int getArtistID() {
+        return artistID;
+    }
+
     private String firstName, lastName;
     private LocalDate birthday;
 

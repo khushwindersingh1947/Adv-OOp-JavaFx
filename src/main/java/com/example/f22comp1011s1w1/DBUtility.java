@@ -1,9 +1,6 @@
 package com.example.f22comp1011s1w1;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -47,6 +44,43 @@ public class DBUtility {
          return artists;
      }
 
+    /**
+     * this method insert a song object to the database
+     */
+
+    public static int insertSongDB(Song song) throws SQLException {
+        int songID = -1;
+        ResultSet resultSet =null;
+
+        String sql = "INSERT INTO songs (name,genre,length,artistID) VALUES (?,?,?,?);";
+
+        try(
+                Connection con = DriverManager.getConnection(connectUrl,user,password);
+                PreparedStatement ps = con.prepareStatement(sql,new String[]{"songID"});
+
+        ) {
+            ps.setString(1,song.getName());
+            ps.setString(2,song.getGenre());
+            ps.setInt(3,song.getLength());
+            ps.setInt(4,song.getArtist().getArtistID());
+
+            //run the sql command
+            ps.executeUpdate();
+
+            resultSet = ps.getGeneratedKeys();
+            while(resultSet.next()){
+                songID = resultSet.getInt(1);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            if (resultSet!=null)
+                resultSet.close();
+        }
+        return songID;
+    }
 
 
 }
