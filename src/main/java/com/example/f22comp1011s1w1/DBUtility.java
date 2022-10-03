@@ -14,7 +14,6 @@ public class DBUtility {
     /**
      * This method will return a list of Artist objects
      */
-
      public static ArrayList<Artist> getArtistsFromDB(){
          ArrayList<Artist> artists = new ArrayList();
 
@@ -81,6 +80,4 @@ public class DBUtility {
         }
         return songID;
     }
-
-
 }

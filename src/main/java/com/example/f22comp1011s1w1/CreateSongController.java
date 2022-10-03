@@ -1,13 +1,13 @@
 package com.example.f22comp1011s1w1;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -69,11 +69,16 @@ public class CreateSongController implements Initializable {
     }
 
     @FXML
-    void createSong(ActionEvent event) {
+    void createSong(ActionEvent event) throws SQLException {
         Song song= new Song(songTextField.getText(),genreComboBox.getValue(),
                 releaseSpinner.getValue(),Integer.parseInt(lengthTextField.getText()),ArtistComboBox.getValue());
-        resultLabel.setText(song.toString());
+        int songID = DBUtility.insertSongDB(song);
+        resultLabel.setText("Added to DB woth songID = " + songID);
 
     }
 
+    @FXML
+    private void changeTableView(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event,"song-table-view.fxml");
+    }
 }
