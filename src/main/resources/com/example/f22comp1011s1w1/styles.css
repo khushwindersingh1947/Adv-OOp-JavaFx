@@ -1,8 +1,12 @@
 .root{
+    -fx-font-size: 12pt;
+}
+#Scene1{
     -fx-font-size: 20pt;
+    -fx-font-style: bold;
 }
 #header{
-    -fx-font-size: 35pt;
+    -fx-font-size: 20pt;
     -fx-font-style: bold;
 
 }
