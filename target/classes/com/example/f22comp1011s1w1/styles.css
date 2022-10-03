@@ -1,3 +1,8 @@
 .root{
     -fx-font-size: 20pt;
 }
+#header{
+    -fx-font-size: 35pt;
+    -fx-font-style: bold;
+
+}

@@ -51,7 +51,7 @@ public class DBUtility {
         int songID = -1;
         ResultSet resultSet =null;
 
-        String sql = "INSERT INTO songs (name,genre,length,artistID) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO songs (name,genre,length,releaseYear,artistID) VALUES (?,?,?,?,?);";
 
         try(
                 Connection con = DriverManager.getConnection(connectUrl,user,password);
@@ -61,7 +61,8 @@ public class DBUtility {
             ps.setString(1,song.getName());
             ps.setString(2,song.getGenre());
             ps.setInt(3,song.getLength());
-            ps.setInt(4,song.getArtist().getArtistID());
+            ps.setInt(4,song.getReleaseYear());
+            ps.setInt(5,song.getArtist().getArtistID());
 
             //run the sql command
             ps.executeUpdate();
