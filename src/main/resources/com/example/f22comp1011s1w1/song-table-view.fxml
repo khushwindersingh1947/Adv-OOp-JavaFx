@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f22comp1011s1w1.SongTableViewController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f22comp1011s1w1.SongTableViewController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -20,15 +20,13 @@
          <center>
             <TableView fx:id="tableView" prefHeight="394.0" prefWidth="565.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="songID" prefWidth="75.0" text="SongID" />
-                <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="genre" prefWidth="75.0" text="Genre" />
-                  <TableColumn fx:id="length" prefWidth="78.39996337890625" text="Length" />
-                  <TableColumn fx:id="artist" prefWidth="78.39996337890625" text="Artist" />
+                <TableColumn fx:id="songID" prefWidth="101.59997177124023" text="SongID" />
+                <TableColumn fx:id="name" prefWidth="121.60003662109375" text="Name" />
+                  <TableColumn fx:id="genre" prefWidth="131.2000274658203" text="Genre" />
+                  <TableColumn fx:id="length" prefWidth="110.4000244140625" text="Length" />
+                  <TableColumn fx:id="artist" prefWidth="352.79998779296875" text="Artist" />
+                  <TableColumn fx:id="releaseYear" prefWidth="139.2000732421875" text="Release Year" />
               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
             </TableView>
          </center>
          <padding>

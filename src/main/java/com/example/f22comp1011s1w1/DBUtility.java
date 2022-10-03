@@ -81,4 +81,43 @@ public class DBUtility {
         }
         return songID;
     }
+
+
+    public static ArrayList<Song> getSongsFromDB(){
+        ArrayList<Song> songs = new ArrayList();
+
+        //query the DB to get artists list
+        String sql = "select * from songs as s inner join artists as a on a.artistID = s.artistID";
+        // try() is called try with resources
+        try(
+                Connection con = DriverManager.getConnection(connectUrl,user,password);
+                Statement statement = con.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()) {
+                int songID= resultSet.getInt("songID");
+                String name = resultSet.getString("name");
+                String genre = resultSet.getString("genre");
+                int length = resultSet.getInt("length");
+                int releaseYear = resultSet.getInt("releaseYear");
+
+                //create a new artist
+                int artistID = resultSet.getInt("artistId");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                LocalDate birthday = resultSet.getDate("birthday").toLocalDate();
+
+                Artist newArtist = new Artist(artistID,firstName, lastName, birthday);
+
+                Song newRow = new Song(songID,name,genre,releaseYear,length,newArtist);
+
+                songs.add(newRow);
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return songs;
+    }
 }

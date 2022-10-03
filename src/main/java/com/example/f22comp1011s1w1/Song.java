@@ -4,8 +4,9 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Song {
+
     private String Name,genre;
-    private int releaseYear,length;
+    private int releaseYear,length,songID;
     private Artist artist;
 
     public Song(String name, String genre, int releaseYear, int length, Artist artist) {
@@ -14,6 +15,23 @@ public class Song {
         setReleaseYear(releaseYear);
         setLength(length);
         setArtist(artist);
+    }
+
+    public Song(int songID,String name, String genre, int releaseYear, int length, Artist artist) {
+        this(name, genre, releaseYear, length, artist);
+        setSongID(songID);
+    }
+
+    public int getSongID() {
+        return songID;
+    }
+
+    public void setSongID(int songID) {
+        if(songID>0){
+            this.songID = songID;
+        }else{
+            throw new IllegalArgumentException("SongId must be greater than zero");
+        }
     }
 
     public String getName() {
@@ -85,6 +103,7 @@ public class Song {
         Collections.sort(list);
         return list;
     }
+
     public String toString(){
         return String.format("%s - %s ", artist,getName());
     }
