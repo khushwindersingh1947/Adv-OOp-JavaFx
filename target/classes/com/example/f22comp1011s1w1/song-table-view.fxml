@@ -7,15 +7,24 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f22comp1011s1w1.SongTableViewController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <Label stylesheets="@styles.css" text="Our Favorite Songs" BorderPane.alignment="CENTER" />
+            <Label id="header" stylesheets="@styles.css" text="Our Favorite Songs" BorderPane.alignment="CENTER" />
          </top>
          <bottom>
-            <Button mnemonicParsing="false" onAction="#createSongScene" text="Create a Song" BorderPane.alignment="CENTER" />
+            <HBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#createSongScene" text="Create a Song" />
+                  <Button mnemonicParsing="false" onAction="#createViewChartScene" text="Chart View" />
+               </children>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </HBox>
          </bottom>
          <center>
             <TableView fx:id="tableView" prefHeight="394.0" prefWidth="565.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">

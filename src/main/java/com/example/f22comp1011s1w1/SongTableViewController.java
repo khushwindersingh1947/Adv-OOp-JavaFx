@@ -35,14 +35,21 @@ public class SongTableViewController implements Initializable {
     private TableView<Song> tableView;
 
     @FXML
-    void createSongScene(ActionEvent event) throws IOException {
+    private void createSongScene(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event,"create-song-view.fxml");
     }
+
+    @FXML
+    private void createViewChartScene(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event,"chart-view.fxml");
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //configure columns to connect to specific methods in the song class
 
+        //these property value methods are calling get methods from classes
         songID.setCellValueFactory(new PropertyValueFactory<Song,Integer>("songID"));
         name.setCellValueFactory(new PropertyValueFactory<Song,String>("name"));
         genre.setCellValueFactory(new PropertyValueFactory<Song,String>("genre"));
